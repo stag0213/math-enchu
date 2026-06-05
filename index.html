@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>斜め切断された円柱</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div id="app">
+    <div id="panel">
+      <h1>半径 5・高さ 5 の直円柱を 45° の平面で切断した立体</h1>
+      <p>
+        座標を、底面を <strong>z = 0</strong>、円柱を <strong>x² + y² ≤ 25</strong>、高さ方向を <strong>z</strong> として取り、
+        底面の直径を <strong>x 軸</strong> に合わせると、切断平面は <strong>z = y</strong> と表せます。
+      </p>
+      <p>
+        下の表示では、<strong>大きい方の立体</strong>・<strong>切り取られる小さい方</strong>・<strong>両方</strong> を切り替えられます。
+        赤い面が切断面です。
+      </p>
+      <div class="row">
+        <label for="mode">表示:</label>
+        <select id="mode">
+          <option value="kept">大きい方の立体</option>
+          <option value="removed">切り取られる小さい方</option>
+          <option value="both">両方</option>
+        </select>
+        <button id="resetView">視点をリセット</button>
+      </div>
+      <div class="legend">
+        <span class="swatch kept"></span>大きい方
+        &nbsp;&nbsp;
+        <span class="swatch removed"></span>小さい方
+        &nbsp;&nbsp;
+        <span class="swatch cut"></span>切断面
+      </div>
+    </div>
+
+    <div id="footer">ドラッグ: 回転 / ホイール: 拡大縮小 / Shift+ドラッグ: 平行移動</div>
+  </div>
+
+  <script type="module" src="./main.js"></script>
+</body>
+</html>
