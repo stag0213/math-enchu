@@ -1,5 +1,5 @@
-import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.165.0/build/three.module.js';
-import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.165.0/examples/jsm/controls/OrbitControls.js';
+import * as THREE from 'three';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
 const R = 5;
 const H = 5;
@@ -34,8 +34,8 @@ dir2.position.set(-10, -4, 8);
 scene.add(dir2);
 
 const grid = new THREE.GridHelper(24, 24, 0x3e5a86, 0x20324f);
-grid.position.z = -0.02;
 grid.rotation.x = Math.PI / 2;
+grid.position.z = -0.02;
 scene.add(grid);
 
 const axes = new THREE.AxesHelper(7.5);
@@ -265,11 +265,14 @@ function setMode(mode) {
 
 setMode('kept');
 
-document.getElementById('mode').addEventListener('change', (e) => {
+const modeSelect = document.getElementById('mode');
+const resetButton = document.getElementById('resetView');
+
+modeSelect.addEventListener('change', (e) => {
   setMode(e.target.value);
 });
 
-document.getElementById('resetView').addEventListener('click', () => {
+resetButton.addEventListener('click', () => {
   camera.position.set(14, 12, 16);
   controls.target.set(0, 0, 2.5);
   controls.update();
