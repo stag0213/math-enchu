@@ -3,29 +3,22 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>斜め切断された円柱</title>
+  <title>斜め切断された円柱（依存ゼロ版）</title>
   <link rel="stylesheet" href="./style.css" />
-
-  <script type="importmap">
-    {
-      "imports": {
-        "three": "https://cdn.jsdelivr.net/npm/three@0.165.0/build/three.module.js",
-        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.165.0/examples/jsm/"
-      }
-    }
-  </script>
 </head>
 <body>
   <div id="app">
+    <canvas id="viewport"></canvas>
+
     <div id="panel">
       <h1>半径 5・高さ 5 の直円柱を 45° の平面で切断した立体</h1>
       <p>
-        座標を、底面を <strong>z = 0</strong>、円柱を <strong>x² + y² ≤ 25</strong>、高さ方向を <strong>z</strong> として取り、
-        底面の直径を <strong>x 軸</strong> に合わせると、切断平面は <strong>z = y</strong> と表せます。
+        円柱を <strong>x² + y² ≤ 25, 0 ≤ z ≤ 5</strong> とし、底面の直径を <strong>x 軸</strong> に取ると、
+        切断平面は <strong>z = y</strong> と表せます。
       </p>
       <p>
-        下の表示では、<strong>大きい方の立体</strong>・<strong>切り取られる小さい方</strong>・<strong>両方</strong> を切り替えられます。
-        赤い面が切断面です。
+        このページは <strong>外部ライブラリを一切使わない</strong> 依存ゼロ版です。
+        青が残る立体、橙が切り取られる立体、赤が切断面です。
       </p>
       <div class="row">
         <label for="mode">表示:</label>
@@ -48,6 +41,6 @@
     <div id="footer">ドラッグ: 回転 / ホイール: 拡大縮小 / Shift+ドラッグ: 平行移動</div>
   </div>
 
-  <script type="module" src="./main.js"></script>
+  <script src="./main.js"></script>
 </body>
 </html>
